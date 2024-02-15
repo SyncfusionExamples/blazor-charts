@@ -1,0 +1,56 @@
+﻿@page "/"
+
+<SfChart Title="Average Egg Price Surges" SubTitle="The average price for a drozen grade A eggs in the U.S.Rose in 2022">
+    <ChartArea Background="Skyblue"></ChartArea>
+    <ChartSubTitleStyle TextOverflow="TextOverflow.None"></ChartSubTitleStyle>
+    <ChartPrimaryXAxis Title="Month" LabelFormat="MMM" ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+        <ChartAxisMinorTickLines Width="1"></ChartAxisMinorTickLines>
+    </ChartPrimaryXAxis >
+    <ChartPrimaryYAxis Minimum="1" Maximum="5" Interval="0.5" Title="Price USD" LabelFormat="${value}"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries Width="2" Opacity="1" Fill="orange" DataSource="@EggPriceList" DashArray="10" XName="Month" YName="AveragePrice" Type="ChartSeriesType.Line">
+            <ChartMarker Visible="true" Shape="ChartShape.Circle" Width="10" Height="10">
+                <ChartMarkerBorder Width="2" Color="black"></ChartMarkerBorder>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+    <ChartAnnotations>
+        <ChartAnnotation X="@data" Y="4.5" CoordinateUnits="Units.Point">
+            <ContentTemplate>
+                <div style="color: #666869; font-size: smaller; font-style: normal">
+                    A few years ago, Avian flu caused egg prices to rise by 40% within nine months. By
+                    September 2015, the prize of dozen eggs had increased to $2.97.
+                </div>
+            </ContentTemplate>
+        </ChartAnnotation>
+    </ChartAnnotations>
+</SfChart>
+
+
+@code {
+    DateTime? data = new DateTime(2022, 05, 01);
+
+    public class EggPriceModel
+    {
+        public DateTime? Month { get; set; }
+        public double AveragePrice { get; set; }
+    }
+
+    public List<EggPriceModel> EggPriceList = new List<EggPriceModel>
+    {
+        new EggPriceModel { Month = new DateTime(2022,01,01), AveragePrice = 1.93 },
+        new EggPriceModel { Month = new DateTime(2022,02,01), AveragePrice = 2.01 },
+        new EggPriceModel { Month = new DateTime(2022,03,01), AveragePrice = 2.05 },
+        new EggPriceModel { Month = new DateTime(2022,04,01), AveragePrice = 2.52 },
+        new EggPriceModel { Month = new DateTime(2022,05,01), AveragePrice = 2.86 },
+        new EggPriceModel { Month = new DateTime(2022,06,01), AveragePrice = 2.71 },
+        new EggPriceModel { Month = new DateTime(2022,07,01), AveragePrice = 2.94 },
+        new EggPriceModel { Month = new DateTime(2022,08,01), AveragePrice = 3.12 },
+        new EggPriceModel { Month = new DateTime(2022,09,01), AveragePrice = 2.9 },
+        new EggPriceModel { Month = new DateTime(2022,10,01), AveragePrice = 3.42 },
+        new EggPriceModel { Month = new DateTime(2022,11,01), AveragePrice = 3.59 },
+        new EggPriceModel { Month = new DateTime(2022,12,01), AveragePrice = 4.25 },
+    };
+}
