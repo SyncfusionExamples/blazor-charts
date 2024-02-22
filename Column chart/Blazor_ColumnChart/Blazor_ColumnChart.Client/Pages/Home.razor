@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<div style="display: flex; align-items: center;">
+    <img src="Insurances.png" style="width: 40px; height: 40px; margin: 8px;" />
+    <div>
+        <span style="font-weight: bold; font-size: small;">Creating a Customized Column Chart for USA's Insurance Companies by Market Capitalization</span>
+        <br>
+        <span style="font-size: x-small;">List of USA insurance companies based on 2022 market capitalization data, visualized in the customized column chart.</span>
+    </div>
+</div>
+
+<SfChart>
+    <ChartPrimaryXAxis Title="Insurance Companies" LabelIntersectAction="LabelIntersectAction.Wrap" ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+    </ChartPrimaryXAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@InsuranceCompaniesList" Fill="#2E97A7" XName="CompanyName" YName="MarketCapitalization" Type="ChartSeriesType.Column">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Format="${value}B" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code{
+
+    public class InsuranceCompany
+    {
+        public string? CompanyName { get; set; }
+        public double MarketCapitalization { get; set; }
+    }
+
+    List<InsuranceCompany> InsuranceCompaniesList = new List<InsuranceCompany>()
+    {
+        new InsuranceCompany{CompanyName = "Elevance Health", MarketCapitalization = 123.11},
+        new InsuranceCompany{CompanyName = "Cigna", MarketCapitalization = 101.30},
+        new InsuranceCompany{CompanyName = "Marsh&MC Lennan", MarketCapitalization = 82.07},
+        new InsuranceCompany{CompanyName = "Progressive", MarketCapitalization = 75.88},
+        new InsuranceCompany{CompanyName = "Humana", MarketCapitalization = 64.84},
+        new InsuranceCompany{CompanyName = "MetLife", MarketCapitalization = 56.78},
+        new InsuranceCompany{CompanyName = "American International", MarketCapitalization = 46.98},
+        new InsuranceCompany{CompanyName = "Arthur J.Gallagher", MarketCapitalization = 39.75}
+    };
+}
