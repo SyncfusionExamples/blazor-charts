@@ -1,0 +1,93 @@
+﻿@page "/"
+
+<div style="display: flex; align-items: center; background-color:#d8ddca;">
+    <div>
+        <span style="font-weight: bold; font-size: large; margin-left:20px;">Creating a Stacked Column Chart for Global Smartphone Shipments</span>
+        <br />
+        <span style="font-size: x-small; margin-left:20px">The Stacked column chart showcases the quarterly smartphone throughout 2022 (Q1 t0 Q4), while the line chart illustrates the corresponding market shares over the same period</span>
+        <br />
+        <div class="box"></div>
+        <span style="font-size: x-small;">Smartphone Shipments 2022[Q1-Q4][in Millions]</span>
+        <div class="line"></div>
+        <span style="font-size: x-small;">Smartphone Market Share 2022[in Percentage]</span>
+    </div>
+</div>
+
+<style>
+    .box {
+        display:inline-block;
+        margin-left: 20px;
+        height: 10px;
+        width: 10px;
+        background-color: #555d3c;
+    }
+
+    .line {
+        display: inline-block;
+        margin-left: 10px;
+        height: 2px;
+        width: 20px;
+        background-color: #555d3c;
+    }
+</style>
+
+<SfChart Background="#d8ddca">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category"></ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Minimum="0" Maximum="260" Interval="20"></ChartPrimaryYAxis>
+    <ChartAxes>
+        <ChartAxis Minimum="8" Maximum="22" Interval="1" OpposedPosition="true" RowIndex="0" Name="yAxis2" LabelFormat="{value}%">
+            <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+            <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+        </ChartAxis>
+    </ChartAxes>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@ShipmentsData" Fill="#9aa573" XName="BrandName"  YName="Quarter1" Type="ChartSeriesType.StackingColumn">
+            <ChartMarker>
+                <ChartDataLabel Format="{value}M" Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="@ShipmentsData" Fill="#a5af83" XName="BrandName" YName="Quarter2" Type="ChartSeriesType.StackingColumn">
+            <ChartMarker>
+                <ChartDataLabel Format="{value}M" Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="@ShipmentsData" Fill="#b0b992" XName="BrandName" YName="Quarter3" Type="ChartSeriesType.StackingColumn">
+            <ChartMarker>
+                <ChartDataLabel Format="{value}M" Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="@ShipmentsData" Fill="#bbc3a2" XName="BrandName" YName="Quarter4" Type="ChartSeriesType.StackingColumn">
+            <ChartMarker>
+                <ChartDataLabel Format="{value}M" Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="@ShipmentsData" Fill="#555d3c" YAxisName="yAxis2"  XName="BrandName" YName="MarketShare" Width="2" Type="ChartSeriesType.Line">
+            <ChartMarker Visible="true"></ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+    <ChartTooltipSettings Enable="true"></ChartTooltipSettings>
+</SfChart>
+
+
+
+@code{
+
+    List<Model> ShipmentsData = new List<Model>()
+    {
+        new Model {BrandName = "Oppo", Quarter1 = 31.32, Quarter2 = 26.55, Quarter3 = 26.62, Quarter4 = 20.61, MarketShare = 8.7 },
+        new Model {BrandName ="Vivo", Quarter1 = 28.71, Quarter2 = 26.44, Quarter3 = 26.83, Quarter4 = 24, MarketShare = 8.8 },
+        new Model {BrandName ="Xiaomi", Quarter1 = 38.5, Quarter2 = 39.1, Quarter3 = 40.2, Quarter4 = 33, MarketShare = 12.5 },
+        new Model {BrandName ="Apple", Quarter1 = 56.99, Quarter2 = 44.93, Quarter3 = 48.6, Quarter4 = 71.24, MarketShare = 18.4 },
+        new Model {BrandName = "Samsung", Quarter1 = 74, Quarter2 = 62, Quarter3 = 64, Quarter4 = 58 , MarketShare = 21.4 }
+    };
+
+    public class Model
+    {
+        public string? BrandName { get; set; }
+        public double Quarter1 { get; set; }
+        public double Quarter2 { get; set; }
+        public double Quarter3 { get; set; }
+        public double Quarter4 { get; set; }
+        public double MarketShare { get; set; }
+    }
+}
