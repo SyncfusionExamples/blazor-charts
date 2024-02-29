@@ -14,12 +14,17 @@
         <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
     </ChartPrimaryXAxis>
     <ChartSeriesCollection>
-        <ChartSeries DataSource="@InsuranceCompaniesList" Fill="#2E97A7" XName="CompanyName" YName="MarketCapitalization" Type="ChartSeriesType.Column">
+        <ChartSeries DataSource="@InsuranceCompaniesList" Fill="#2E97A7" XName="CompanyName"
+                     YName="MarketCapitalization" Type="ChartSeriesType.Column" DashArray="5,5" ColumnSpacing="2.2"
+                     ColumnWidth="0.5">
+           <ChartSeriesBorder Width="2" Color="black"></ChartSeriesBorder>
             <ChartMarker>
                 <ChartDataLabel Visible="true" Format="${value}B" Position="LabelPosition.Middle"></ChartDataLabel>
             </ChartMarker>
+            <ChartCornerRadius BottomLeft="35" BottomRight="35" TopLeft="35" TopRight="35"></ChartCornerRadius>
         </ChartSeries>
     </ChartSeriesCollection>
+    <ChartTooltipSettings Enable="true" Header="Insurance company" Format="${point.x} : $${point.y}B"></ChartTooltipSettings>
 </SfChart>
 
 @code{
