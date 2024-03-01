@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<SfChart Title="Teenage Digital Engagement in the US 2023" 
+<SfChart Title="Teenage Digital Engagement in the US 2023"
          SubTitle="% of U.S. teens age 13 to 17 who report visiting or using in the following apps or sites">
          <ChartSubTitleStyle TextOverflow="TextOverflow.None" Size="10px"></ChartSubTitleStyle>
     <ChartArea>
@@ -11,7 +11,7 @@
     </ChartPrimaryXAxis>
     <ChartPrimaryYAxis Visible="false"></ChartPrimaryYAxis>
     <ChartSeriesCollection>
-        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#002748"  XName="Category" YName="AlmostConstantly"
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#002748" XName="Category" YName="AlmostConstantly"
                      Type="ChartSeriesType.StackingBar100" Name="AlmostConstantly">
             <ChartMarker>
                 <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
@@ -41,14 +41,16 @@
                 <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
             </ChartMarker>
         </ChartSeries>
-        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#ccd3da" XName="Category" YName="DoNotUse"
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#b2bec8" XName="Category" YName="DoNotUse"
                      Type="ChartSeriesType.StackingBar100" Name="DoNotUse">
             <ChartMarker>
                 <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
             </ChartMarker>
         </ChartSeries>
     </ChartSeriesCollection>
-    <ChartTooltipSettings Enable="true" Header="${point.x}" Format="${series.name} : ${point.y}">
+    <ChartTooltipSettings Enable="true" Fill="white" Header="${point.x}" Format="${series.name} : ${point.y}">
+        <ChartTooltipTextStyle Color="#002748"></ChartTooltipTextStyle>
+        <ChartTooltipBorder Width="2" Color="#002748"></ChartTooltipBorder>
     </ChartTooltipSettings>
     <ChartLegendSettings Visible="true" EnableHighlight="true" Width="700px">
     </ChartLegendSettings>
