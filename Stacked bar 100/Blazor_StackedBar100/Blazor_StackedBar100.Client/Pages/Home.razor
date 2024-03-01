@@ -1,0 +1,83 @@
+﻿@page "/"
+
+<SfChart Title="Teenage Digital Engagement in the US 2023" 
+         SubTitle="% of U.S. teens age 13 to 17 who report visiting or using in the following apps or sites">
+         <ChartSubTitleStyle TextOverflow="TextOverflow.None" Size="10px"></ChartSubTitleStyle>
+    <ChartArea>
+        <ChartAreaBorder Width="0"></ChartAreaBorder>
+    </ChartArea>
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+    </ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Visible="false"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#002748"  XName="Category" YName="AlmostConstantly"
+                     Type="ChartSeriesType.StackingBar100" Name="AlmostConstantly">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#32526c" XName="Category" YName="SeveralTimesADay"
+                     Type="ChartSeriesType.StackingBar100" Name="SeveralTimesADay">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#4c677e" XName="Category" YName="AboutOnceADay"
+                     Type="ChartSeriesType.StackingBar100" Name="AboutOnceADay">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#667d91" XName="Category" YName="SeveralTimesAWeek"
+                     Type="ChartSeriesType.StackingBar100" Name="SeveralTimesAWeek">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#99a8b5" XName="Category" YName="LessOften"
+                     Type="ChartSeriesType.StackingBar100" Name="LessOften">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="SocialMediaUsageDataList" Fill="#ccd3da" XName="Category" YName="DoNotUse"
+                     Type="ChartSeriesType.StackingBar100" Name="DoNotUse">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+    <ChartTooltipSettings Enable="true" Header="${point.x}" Format="${series.name} : ${point.y}">
+    </ChartTooltipSettings>
+    <ChartLegendSettings Visible="true" EnableHighlight="true" Width="700px">
+    </ChartLegendSettings>
+</SfChart>
+
+@code{
+
+    List<SocialMediaUsageData> SocialMediaUsageDataList = new List<SocialMediaUsageData>()
+    {
+        new SocialMediaUsageData {Category="Facebook", AlmostConstantly=3, SeveralTimesADay=8, 
+        AboutOnceADay=8, SeveralTimesAWeek=6, LessOften=7, DoNotUse=67 },
+        new SocialMediaUsageData {Category="Instagram", AlmostConstantly=8, SeveralTimesADay=27, 
+        AboutOnceADay=12, SeveralTimesAWeek=7, LessOften=5, DoNotUse=41 },
+        new SocialMediaUsageData {Category="Snapchat", AlmostConstantly=14, SeveralTimesADay=29, 
+        AboutOnceADay=8, SeveralTimesAWeek=5, LessOften=4, DoNotUse=39 },
+        new SocialMediaUsageData {Category="TikTok", AlmostConstantly=17, SeveralTimesADay=32, 
+        AboutOnceADay=9, SeveralTimesAWeek=4, LessOften=2, DoNotUse=36 },
+        new SocialMediaUsageData {Category="YouTube", AlmostConstantly=16, SeveralTimesADay=38, 
+        AboutOnceADay=17, SeveralTimesAWeek=14, LessOften=8, DoNotUse=6 },
+    };
+
+    public class SocialMediaUsageData
+    {
+        public string? Category { get; set; }
+        public double AlmostConstantly { get; set; }
+        public double SeveralTimesADay { get; set; }
+        public double AboutOnceADay { get; set; }
+        public double SeveralTimesAWeek { get; set; }
+        public double LessOften { get; set; }
+        public double DoNotUse { get; set; }
+    }
+}
