@@ -1,5 +1,5 @@
-using Blazor_StackedColumn.Client.Pages;
-using Blazor_StackedColumn.Components;
+using Blazor_MultiSeriesChart.Client.Pages;
+using Blazor_MultiSeriesChart.Components;
 using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
