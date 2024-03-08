@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blazor_StackedColumn.Client\Blazor_StackedColumn.Client.csproj" />
+    <ProjectReference Include="..\Blazor_StackedColumn100.Client\Blazor_StackedColumn100.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
   </ItemGroup>
 

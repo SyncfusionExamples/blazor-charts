@@ -3,11 +3,11 @@
 <SfChart Title="Average Egg Price Surges" SubTitle="The average price for a drozen grade A eggs in the U.S.Rose in 2022">
     <ChartArea Background="Skyblue"></ChartArea>
     <ChartSubTitleStyle TextOverflow="TextOverflow.None"></ChartSubTitleStyle>
-    <ChartPrimaryXAxis Title="Month" LabelFormat="MMM" ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime">
+    <ChartPrimaryXAxis Title="Month" ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime">
         <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
         <ChartAxisMinorTickLines Width="1"></ChartAxisMinorTickLines>
     </ChartPrimaryXAxis >
-    <ChartPrimaryYAxis Minimum="1" Maximum="5" Interval="0.5" Title="Price USD" LabelFormat="${value}"></ChartPrimaryYAxis>
+    <ChartPrimaryYAxis Minimum="1" Maximum="5" Title="Price (USD)" LabelFormat="${value}"></ChartPrimaryYAxis>
     <ChartSeriesCollection>
         <ChartSeries Width="2" Opacity="1" Fill="orange" DataSource="@EggPriceList" DashArray="10" XName="Month" YName="AveragePrice" Type="ChartSeriesType.Line">
             <ChartMarker Visible="true" Shape="ChartShape.Circle" Width="10" Height="10">

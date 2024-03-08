@@ -1,0 +1,64 @@
+﻿@page "/"
+
+<SfChart Title="Global Cloud Data Center">
+    <ChartArea>
+        <ChartAreaBorder Width="0"></ChartAreaBorder>
+    </ChartArea>
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+        <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+    </ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Interval="20">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+    </ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="CloudData" XName="Cloud" YName="SoutheastAsia"
+                     Type="ChartSeriesType.StackingColumn100" Name="SoutheastAsia">
+            <ChartMarker>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="CloudData" XName="Cloud" YName="NorthAmerica" 
+                     Type="ChartSeriesType.StackingColumn100" Name="NorthAmerica">
+            <ChartMarker>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="CloudData" XName="Cloud" YName="Europe" 
+                     Type="ChartSeriesType.StackingColumn100" Name="Europe">
+            <ChartMarker>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="CloudData" XName="Cloud" YName="Others" 
+                     Type="ChartSeriesType.StackingColumn100" Name="Others">
+            <ChartMarker>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+    <ChartTooltipSettings Enable="true" Shared="true"></ChartTooltipSettings>
+    <ChartLegendSettings Visible="true" EnableHighlight="true" Position="LegendPosition.Right" Height="200px">
+    </ChartLegendSettings>
+</SfChart>
+
+@code{
+
+    List<CloudDataCenter> CloudData = new List<CloudDataCenter>()
+    {
+        new CloudDataCenter() { Cloud = "Microsoft", SoutheastAsia = 31,NorthAmerica = 37,Europe = 32, Others = 18},
+        new CloudDataCenter() { Cloud = "Amazon", SoutheastAsia = 21, NorthAmerica = 25,Europe = 18, Others = 12},
+        new CloudDataCenter() { Cloud = "Google", SoutheastAsia = 24, NorthAmerica = 25, Europe = 18, Others = 6 },
+        new CloudDataCenter() { Cloud = "Alibaba", SoutheastAsia = 49, NorthAmerica = 4, Europe = 4, Others = 3},
+        new CloudDataCenter() { Cloud = "IBM", SoutheastAsia = 8, NorthAmerica = 28, Europe = 18, Others = 6 },
+    };
+
+    public class CloudDataCenter
+    {
+        public string? Cloud { get; set; }
+        public double SoutheastAsia { get; set; }
+        public double NorthAmerica { get; set; }
+        public double Europe { get; set; }
+        public double Others { get; set; }
+    }
+}
