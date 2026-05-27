@@ -1,6 +1,6 @@
 # Blazor Charts Component Examples
 
-A collection of real-world examples demonstrating how to create and customize interactive charts using  Blazor Chart components. Each example showcases different chart types with practical use cases and real data.
+A collection of real-world examples demonstrating how to create and customize interactive charts using  [Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) components. Each example showcases different chart types with practical use cases and real data.
 
 ## Overview
 
